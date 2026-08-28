@@ -1,0 +1,76 @@
+<mxfile host="Electron">
+  <diagram name="Vue App Pipeline" id="2xg9OO0UaKnfbG0uLXWB">
+    <mxGraphModel dx="2296" dy="930" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="tBF-B4NRlwFNwmOORhRC-7" edge="1" parent="1" source="tBF-B4NRlwFNwmOORhRC-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="tBF-B4NRlwFNwmOORhRC-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tBF-B4NRlwFNwmOORhRC-1" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;flipH=1;legacyAnchorPoints=0;flipV=1;" value="dependencies" vertex="1">
+          <mxGeometry height="80" width="80" x="98" y="192" as="geometry" />
+        </mxCell>
+        <mxCell id="tBF-B4NRlwFNwmOORhRC-9" edge="1" parent="1" source="tBF-B4NRlwFNwmOORhRC-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="tBF-B4NRlwFNwmOORhRC-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tBF-B4NRlwFNwmOORhRC-2" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;flipH=1;legacyAnchorPoints=0;flipV=1;" value="lint" vertex="1">
+          <mxGeometry height="80" width="80" x="303" y="192" as="geometry" />
+        </mxCell>
+        <mxCell id="tBF-B4NRlwFNwmOORhRC-10" edge="1" parent="1" source="tBF-B4NRlwFNwmOORhRC-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="tBF-B4NRlwFNwmOORhRC-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tBF-B4NRlwFNwmOORhRC-3" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;flipH=1;legacyAnchorPoints=0;flipV=1;" value="test" vertex="1">
+          <mxGeometry height="80" width="80" x="505" y="192" as="geometry" />
+        </mxCell>
+        <mxCell id="tBF-B4NRlwFNwmOORhRC-11" edge="1" parent="1" source="tBF-B4NRlwFNwmOORhRC-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="tBF-B4NRlwFNwmOORhRC-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tBF-B4NRlwFNwmOORhRC-4" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;flipH=1;legacyAnchorPoints=0;flipV=1;" value="build" vertex="1">
+          <mxGeometry height="80" width="80" x="719" y="192" as="geometry" />
+        </mxCell>
+        <mxCell id="tBF-B4NRlwFNwmOORhRC-12" edge="1" parent="1" source="tBF-B4NRlwFNwmOORhRC-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="tBF-B4NRlwFNwmOORhRC-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tBF-B4NRlwFNwmOORhRC-5" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;flipH=1;legacyAnchorPoints=0;flipV=1;" value="package" vertex="1">
+          <mxGeometry height="80" width="80" x="911" y="192" as="geometry" />
+        </mxCell>
+        <mxCell id="tBF-B4NRlwFNwmOORhRC-6" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;flipH=1;legacyAnchorPoints=0;flipV=1;" value="deploy" vertex="1">
+          <mxGeometry height="80" width="80" x="1106" y="192" as="geometry" />
+        </mxCell>
+        <mxCell id="tBF-B4NRlwFNwmOORhRC-13" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="git clone &amp;lt;repository&amp;gt;&lt;div&gt;git checkout branch main&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="-118" y="349" as="geometry" />
+        </mxCell>
+        <mxCell id="tBF-B4NRlwFNwmOORhRC-14" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="npx eslint src/ --format checkstyle --output-file eslint-report.xml" vertex="1">
+          <mxGeometry height="60" width="143" x="258" y="354" as="geometry" />
+        </mxCell>
+        <mxCell id="tBF-B4NRlwFNwmOORhRC-15" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="npm run test" vertex="1">
+          <mxGeometry height="60" width="120" x="485" y="349" as="geometry" />
+        </mxCell>
+        <mxCell id="tBF-B4NRlwFNwmOORhRC-16" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="docker compose up&lt;div&gt;docker push&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="893" y="349" as="geometry" />
+        </mxCell>
+        <mxCell id="tBF-B4NRlwFNwmOORhRC-18" edge="1" parent="1" source="tBF-B4NRlwFNwmOORhRC-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="tBF-B4NRlwFNwmOORhRC-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tBF-B4NRlwFNwmOORhRC-17" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;flipH=1;legacyAnchorPoints=0;flipV=1;" value="Checkout" vertex="1">
+          <mxGeometry height="80" width="80" x="-98" y="192" as="geometry" />
+        </mxCell>
+        <mxCell id="tBF-B4NRlwFNwmOORhRC-20" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="npm install" vertex="1">
+          <mxGeometry height="60" width="120" x="78" y="354" as="geometry" />
+        </mxCell>
+        <mxCell id="tBF-B4NRlwFNwmOORhRC-21" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="npm run build" vertex="1">
+          <mxGeometry height="60" width="120" x="704" y="349" as="geometry" />
+        </mxCell>
+        <mxCell id="tBF-B4NRlwFNwmOORhRC-22" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="ssh user@server&lt;div&gt;docker pull&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="1097" y="349" as="geometry" />
+        </mxCell>
+        <mxCell id="tBF-B4NRlwFNwmOORhRC-23" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;spacing=16;" value="Project requirement :&lt;div&gt;- depot git&lt;/div&gt;&lt;div&gt;- repot github&amp;nbsp;&lt;/div&gt;&lt;div&gt;- image docker&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;- docker compose&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;- Virtual Machine for the server&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;- Docker hub project image repo&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="146" width="143" x="-98" y="536" as="geometry" />
+        </mxCell>
+        <mxCell id="tBF-B4NRlwFNwmOORhRC-25" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;spacing=16;" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Serveur requirement :&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;- docker&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;- ssh host and client&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;- shh docker login&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;- docker hub network access&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="109" width="164" x="152" y="539" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
