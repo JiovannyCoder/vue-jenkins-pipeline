@@ -4,10 +4,19 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'echo "Hello World"'
-                sh '''
-                    echo "Multiline shell steps works too"
-                    ls -lah
-                '''
+                echo "Stage 1 : building"
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'echo "Testing"'
+                echo "Stage 2 : deploy"
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh 'echo "Deploy here bru"'
+                echo "Stage 3 : deploy"
             }
         }
     }
