@@ -1,0 +1,15 @@
+services:
+  frontend:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    image: vue-jenkins/frontend
+    ports:
+      - "8080:8080"
+
+  frontend-test:
+    image: vue-jenkins/frontend-test
+    build: 
+      context: .
+      dockerfile: Dockerfile.dev
+    command: ["npm", "run", "test"]

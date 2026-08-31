@@ -1,0 +1,20 @@
+services:
+  frontend-dev:
+    image: vue-jenkins/frontend:dev
+    build: 
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "5173:5173"
+    develop:
+      watch:
+        - action: sync
+          path: .
+          target: /app
+
+  frontend-test:
+    image: vue-jenkins/frontend-test:dev
+    build: 
+      context: .
+      dockerfile: Dockerfile.dev
+    command: ["npm", "run", "test"]
