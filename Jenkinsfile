@@ -45,9 +45,11 @@ pipeline {
                         sh '''
                         ssh -i \${SERVER_SSH_KEY} -o StrictHostKeyChecking=no \${SERVER_USER}@\${SERVER_IP} "echo 'Connexion réussie !' && uname -a"
 
-                        docker pull $DOCKER_USER/$DOCKER_IMAGE:$DOCKER_TAG
+                        docker pull $DOCKER_USER/$DOCKER_IMAGE:$IMAGE_TAG
 
-                        docker run -d --name $DOCKER_CONTAINER -p 8080:8080 $DOCKER_USER/$DOCKER_IMAGE:$DOCKER_TAG
+                        docker rm -f  $DOCKER_CONTAINER
+
+                        docker run -d --name $DOCKER_CONTAINER -p 8080:8080 $DOCKER_USER/$DOCKER_IMAGE:$IMAGE_TAG
                     '''
                 }
             }
