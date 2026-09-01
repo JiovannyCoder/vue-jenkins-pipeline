@@ -3,12 +3,12 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile
-    image: vue-jenkins/frontend
+    image: haritina/vue-jenkins-frontend:${IMAGE_TAG:-latest}
     ports:
       - "8080:8080"
 
   frontend-test:
-    image: vue-jenkins/frontend-test
+    image: haritina/vue-jenkins-frontend-test:${IMAGE_TAG:-latest}
     build: 
       context: .
       dockerfile: Dockerfile.dev
