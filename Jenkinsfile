@@ -5,6 +5,7 @@ pipeline {
         DOCKER_USER = 'haritina'
         DOCKER_IMAGE = 'vue-jenkins-frontend'
         IMAGE_TAG    = "${BUILD_NUMBER}"
+        DOCKER_CONTAINER = 'vue-jenkins'
     }
     stages {
         stage('Dependencies') {
