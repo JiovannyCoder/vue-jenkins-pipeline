@@ -2,10 +2,9 @@ pipeline {
     agent any
     environment {
         REGISTRY_URL = 'docker.io'
-        IMAGE_TAG    = "${BUILD_NUMBER}"
         DOCKER_USER = 'haritina'
         DOCKER_IMAGE = 'vue-jenkins-frontend'
-        DOCKER_CONTAINER = 'vue-jenkins'
+        IMAGE_TAG    = "${BUILD_NUMBER}"
     }
     stages {
         stage('Dependencies') {
@@ -26,9 +25,9 @@ pipeline {
                     sh '''
                         echo "$DOCKER_ACCESS_TOKEN" | docker login $REGISTRY_URL -u $DOCKER_USER --password-stdin
 
-                        docker compose build frontend
+                        docker compose -f compose.yaml build
 
-                        docker compose push frontend
+                        docker compose -f compose.yaml push
 
                         docker logout $REGISTRY_URL
                     '''
@@ -49,6 +48,7 @@ pipeline {
                                 docker pull $DOCKER_USER/$DOCKER_IMAGE:$IMAGE_TAG
                                 docker rm -f $DOCKER_CONTAINER
                                 docker run -d --name $DOCKER_CONTAINER -p 8080:8080 $DOCKER_USER/$DOCKER_IMAGE:$IMAGE_TAG
+                                exit
                             "
                         """
                 }

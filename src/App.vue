@@ -56,9 +56,10 @@ const handleSubmit = () => {
     <form @submit.prevent="handleSubmit">
       <Card class="w-full mx-auto max-w-md mt-[20dvh]">
         <CardHeader>
-          <CardTitle>Welcome to Vue Pipeline App Success bro ! yessss</CardTitle>
+          <CardTitle>Welcome to Vue Pipeline App</CardTitle>
           <CardDescription>
-            Try to guess my anime character and favorite sentence
+            <p>We are learning devops here</p>
+            <p>Try to guess my anime character and favorite sentence</p>
           </CardDescription>
         </CardHeader>
         <CardContent>

@@ -3,13 +3,9 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile
-    image: haritina/vue-jenkins-frontend:${IMAGE_TAG:-latest}
+    image: ${DOCKER_USER}/${DOCKER_IMAGE}:${IMAGE_TAG:-latest}
     ports:
       - "8080:8080"
-
-  frontend-test:
-    image: haritina/vue-jenkins-frontend-test:${IMAGE_TAG:-latest}
-    build: 
-      context: .
-      dockerfile: Dockerfile.dev
-    command: ["npm", "run", "test"]
+    deploy:
+      update_config:
+        order: start-first
