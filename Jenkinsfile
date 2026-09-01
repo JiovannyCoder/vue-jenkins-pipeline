@@ -22,13 +22,13 @@ pipeline {
                     string(credentialsId: 'DOCKER_ACCESS_TOKEN', variable: 'DOCKER_ACCESS_TOKEN')
                 ]) {
                     sh '''
-                        echo "$DOCKER_ACCESS_TOKEN" | docker login $REGISTRY_URL -u $DOCKER_USER --password-stdin
+                        echo "$DOCKER_ACCESS_TOKEN" | docker login -u $DOCKER_USER --password-stdin
                         
                         docker compose up frontend
                         
                         docker compose push frontend
                         
-                        docker logout $REGISTRY_URL
+                        docker logout
                     '''
                 }
             }
