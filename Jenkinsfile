@@ -28,7 +28,7 @@ pipeline {
 
                         docker compose build frontend
 
-                        docker compose push
+                        docker compose push frontend
 
                         docker logout $REGISTRY_URL
                     '''
