@@ -42,15 +42,15 @@ pipeline {
                     string(credentialsId: 'SERVER_IP', variable: 'SERVER_IP'),
                     string(credentialsId: 'SERVER_USER', variable: 'SERVER_USER'),
                 ]) {
-                        sh '''
-                        ssh -i \${SERVER_SSH_KEY} -o StrictHostKeyChecking=no \${SERVER_USER}@\${SERVER_IP} "echo 'Connexion réussie !' && uname -a"
-
-                        docker pull $DOCKER_USER/$DOCKER_IMAGE:$IMAGE_TAG
-
-                        docker rm -f  $DOCKER_CONTAINER
-
-                        docker run -d --name $DOCKER_CONTAINER -p 8080:8080 $DOCKER_USER/$DOCKER_IMAGE:$IMAGE_TAG
-                    '''
+                        sh """
+                            ssh -i \$SERVER_SSH_KEY -o StrictHostKeyChecking=no \$SERVER_USER@\$SERVER_IP "
+                                echo 'Connexion réussie !' && uname -a
+                                
+                                docker pull $DOCKER_USER/$DOCKER_IMAGE:$IMAGE_TAG
+                                docker rm -f $DOCKER_CONTAINER
+                                docker run -d --name $DOCKER_CONTAINER -p 8080:8080 $DOCKER_USER/$DOCKER_IMAGE:$IMAGE_TAG
+                            "
+                        """
                 }
             }
         }
