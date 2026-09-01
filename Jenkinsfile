@@ -47,7 +47,7 @@ pipeline {
                                 echo 'Connexion réussie !' && uname -a
                                 
                                 docker pull $DOCKER_USER/$DOCKER_IMAGE:$IMAGE_TAG
-                                docker rm -f $DOCKER_CONTAINER
+                                docker rm -f $DOCKER_CONTAINER || true
                                 docker run -d --name $DOCKER_CONTAINER -p 8080:8080 $DOCKER_USER/$DOCKER_IMAGE:$IMAGE_TAG
                                 exit
                             "
